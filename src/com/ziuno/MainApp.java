@@ -11,5 +11,10 @@ public class MainApp {
         ApplicationContext context = new FileSystemXmlApplicationContext(System.getProperty("user.dir") + "/src/Beans.xml");
         Hello obj = (Hello)context.getBean("hello");
         obj.getMessage();
+        obj.setMessage("obj");
+        obj.getMessage();
+        Hello obj2 = (Hello)context.getBean("hello");
+        obj2.getMessage();
+        obj.getMessage();
     }
 }

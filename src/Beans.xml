@@ -3,7 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="hello" class="com.ziuno.Hello">
-        <property name="message" value="hello, world"/>
-    </bean>
+    <!--<bean id="hello" class="com.ziuno.Hello" scope="singleton">-->
+    <!--note：singleton 只存放一个共享bean实例-->
+    <!--</bean>-->
+
+    <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype"/>-->
+    <!--note：多个实例对象-->
+
+    <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype" init-method="init"/>-->
+    <!--note：类中有init函数，void无参数方法-->
+
+    <bean id="hello" class="com.ziuno.Hello" scope="prototype"/>
+
 </beans>
