@@ -2,17 +2,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--default-init-method="init"
+       default-destroy-method="destroy"-->
+    <!--在beans标签中添加默认初始化和销毁回调函数-->
+
 
     <!--<bean id="hello" class="com.ziuno.Hello" scope="singleton">-->
-    <!--note：singleton 只存放一个共享bean实例-->
+    <!--&lt;!&ndash;note：singleton 只存放一个共享bean实例&ndash;&gt;-->
     <!--</bean>-->
 
     <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype"/>-->
-    <!--note：多个实例对象-->
+    <!--&lt;!&ndash;note：多个实例对象&ndash;&gt;-->
 
     <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype" init-method="init"/>-->
-    <!--note：类中有init函数，void无参数方法-->
+    <!--&lt;!&ndash;note：类中有init函数，void无参数方法&ndash;&gt;-->
 
-    <bean id="hello" class="com.ziuno.Hello" scope="prototype"/>
+    <!--<bean id="hello" class="com.ziuno.Hello" init-method="init" destroy-method="destroy"/>-->
+    <!--&lt;!&ndash;<bean class="com.ziuno.ProcessHello"/>&ndash;&gt;-->
+
+    <!--<bean id="hello" class="com.ziuno.Hello">-->
+        <!--<property name="message" value="Hello,world!"/>-->
+    <!--</bean>-->
+    <!--<bean id="aloha" class="com.ziuno.Aloha" parent="hello">-->
+        <!--<property name="message" value="Aloha,world!"/>-->
+        <!--<property name="ownMessage" value="balabala"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;bean继承：用于定义bean模板，其他bean继承&ndash;&gt;-->
+
+    <!--<bean id="hello" class="com.ziuno.Hello" abstract="true">-->
+        <!--<property name="message" value="Hello,World"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;模板bean，抽象true，无法实例化&ndash;&gt;-->
+
 
 </beans>

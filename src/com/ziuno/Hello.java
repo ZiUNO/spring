@@ -21,4 +21,12 @@ public class Hello {
 //    public void afterPropertiesSet() throws Exception {
 //        message ="init message";
 //    }
+//
+    public void init(){
+        System.out.println("init");
+    }
+
+    public void destroy(){
+        System.out.println("destroy");
+    }
 }
