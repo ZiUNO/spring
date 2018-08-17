@@ -36,21 +36,21 @@
     <!--<bean id="hello" class="com.ziuno.Hello" />-->
     <!--<bean id="aloha" class="com.ziuno.Aloha">-->
 
-        <!---->
-        <!--<constructor-arg ref="hello"/>-->
-        <!--<constructor-arg type="java.lang.String" value="aaa"/>-->
+    <!---->
+    <!--<constructor-arg ref="hello"/>-->
+    <!--<constructor-arg type="java.lang.String" value="aaa"/>-->
 
-        <!--&lt;!&ndash;无构造函数时可使用property设置私有成员值&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="name" value="值"/>成员传引用&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="name" ref="引用"/>成员传值&ndash;&gt;-->
+    <!--&lt;!&ndash;无构造函数时可使用property设置私有成员值&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="name" value="值"/>成员传引用&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="name" ref="引用"/>成员传值&ndash;&gt;-->
 
-        <!--&lt;!&ndash;<constructor-arg index="0" ref="hello"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<constructor-arg index="1" value="aaa"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash;index (best)&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<constructor-arg index="0" ref="hello"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<constructor-arg index="1" value="aaa"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;index (best)&ndash;&gt;&ndash;&gt;-->
 
-        <!--&lt;!&ndash;<constructor-arg name="h" ref="hello"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<constructor-arg name="m" value="aaa"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash;name&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<constructor-arg name="h" ref="hello"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<constructor-arg name="m" value="aaa"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;name&ndash;&gt;&ndash;&gt;-->
     <!--</bean>-->
     <!--&lt;!&ndash;bean 初始化参数&ndash;&gt;-->
 
@@ -58,10 +58,17 @@
     <!--&lt;!&ndash;创建对象->执行构造函数->属性赋值->初始化前函数->执行类init-method->初始化后函数->Main中继续执行&ndash;&gt;-->
     <!--<bean class="com.ziuno.ProcessHello"/>-->
 
-    <bean id="hello" class="com.ziuno.Hello" p:message="p-namespace message"/>
-    <bean id="aloha" class="com.ziuno.Aloha" parent="hello" p:hello-ref="hello" p:message="p-namespace aloha message" p:ownMessage="p-namespace aloha own message"/>
-    <!--属性传引用或值类中对应属性值需有set-->
+    <!--<bean id="hello" class="com.ziuno.Hello" p:message="p-namespace message"/>-->
+    <!--<bean id="aloha" class="com.ziuno.Aloha" parent="hello" p:hello-ref="hello" p:message="p-namespace aloha message" p:ownMessage="p-namespace aloha own message"/>-->
+    <!--&lt;!&ndash;属性传引用或值类中对应属性值需有set&ndash;&gt;-->
 
+    <bean id="aloha" class="com.ziuno.Aloha">
+        <property name="hello">
+            <bean id="hello" class="com.ziuno.Hello" p:message="Hello inner Message"/>
+        </property>
+        <property name="ownMessage" value="aloha message"/>
+        <property name="message" value="Aloha message (inner)"/>
+    </bean>
 
 
 </beans>
