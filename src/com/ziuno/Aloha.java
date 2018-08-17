@@ -4,10 +4,10 @@ public class Aloha {
     //    DI 测试
     private Hello hello;
 
-    public Aloha(Hello hello, String message) {
+    public Aloha(Hello h, String m) {
         System.out.println("Aloha constructor");
-        this.hello = hello;
-        this.message = message;
+        this.hello = h;
+        this.message = m;
     }
 
     public void printAloha() {
