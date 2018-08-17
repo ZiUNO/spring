@@ -54,10 +54,14 @@
     <!--</bean>-->
     <!--&lt;!&ndash;bean 初始化参数&ndash;&gt;-->
 
-    <bean id="hello" class="com.ziuno.Hello" init-method="init" destroy-method="destroy" p:message="p-namespace message"/>
-    <!--创建对象->执行构造函数->属性赋值->初始化前函数->执行类init-method->初始化后函数->Main中继续执行-->
-    <bean class="com.ziuno.ProcessHello"/>
+    <!--<bean id="hello" class="com.ziuno.Hello" init-method="init" destroy-method="destroy" p:message="p-namespace message"/>-->
+    <!--&lt;!&ndash;创建对象->执行构造函数->属性赋值->初始化前函数->执行类init-method->初始化后函数->Main中继续执行&ndash;&gt;-->
+    <!--<bean class="com.ziuno.ProcessHello"/>-->
 
-    <!--<bean id="aloha" class="com.ziuno.Aloha" parent="hello" p:hello-ref="hello" p:message="p-namespace: aloha message"/>-->
+    <bean id="hello" class="com.ziuno.Hello" p:message="p-namespace message"/>
+    <bean id="aloha" class="com.ziuno.Aloha" parent="hello" p:hello-ref="hello" p:message="p-namespace aloha message" p:ownMessage="p-namespace aloha own message"/>
+    <!--属性传引用或值类中对应属性值需有set-->
+
+
 
 </beans>

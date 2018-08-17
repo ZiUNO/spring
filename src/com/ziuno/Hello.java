@@ -13,7 +13,7 @@ public class Hello {
         不建议
         */
     public String getMessage() {
-        System.out.println("Hello Message:" + message);
+        System.out.println("Hello Message: " + message);
         return message;
     }
 

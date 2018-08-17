@@ -1,18 +1,20 @@
 package com.ziuno;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
 
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans.xml");
-//        Aloha aloha = (Aloha)applicationContext.getBean("aloha");
-//        aloha.printAloha();
-//        aloha.getMessage();
-        Hello hello = (Hello)context.getBean("hello");
-        hello.getMessage();
+//        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans.xml");
+        Aloha aloha = (Aloha)applicationContext.getBean("aloha");
+        aloha.printAloha();
+        aloha.getMessage();
+        aloha.getOwnMessage();
+//        Hello hello = (Hello)context.getBean("hello");
+//        hello.getMessage();
 //        ApplicationContext context = new FileSystemXmlApplicationContext(System.getProperty("user.dir") + "/src/Beans.xml");
 
 
@@ -29,7 +31,7 @@ public class MainApp {
 //        child.getMessage();
 //        child.getOwnMessage();
 
-        context.registerShutdownHook();
+//        context.registerShutdownHook();
 //        关闭hook，仅对singleton和默认有效，对prototype无效
         
 
