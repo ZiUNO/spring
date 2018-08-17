@@ -21,18 +21,24 @@
     <!--&lt;!&ndash;<bean class="com.ziuno.ProcessHello"/>&ndash;&gt;-->
 
     <!--<bean id="hello" class="com.ziuno.Hello">-->
-        <!--<property name="message" value="Hello,world!"/>-->
+    <!--<property name="message" value="Hello,world!"/>-->
     <!--</bean>-->
     <!--<bean id="aloha" class="com.ziuno.Aloha" parent="hello">-->
-        <!--<property name="message" value="Aloha,world!"/>-->
-        <!--<property name="ownMessage" value="balabala"/>-->
+    <!--<property name="message" value="Aloha,world!"/>-->
+    <!--<property name="ownMessage" value="balabala"/>-->
     <!--</bean>-->
     <!--&lt;!&ndash;bean继承：用于定义bean模板，其他bean继承&ndash;&gt;-->
 
     <!--<bean id="hello" class="com.ziuno.Hello" abstract="true">-->
-        <!--<property name="message" value="Hello,World"/>-->
+    <!--<property name="message" value="Hello,World"/>-->
     <!--</bean>-->
     <!--&lt;!&ndash;模板bean，抽象true，无法实例化&ndash;&gt;-->
 
+    <bean id="hello" class="com.ziuno.Hello" />
+    <bean id="aloha" class="com.ziuno.Aloha">
+        <constructor-arg ref="hello"/>
+        <constructor-arg type="java.lang.String" value="aaa"/>
+    </bean>
+    <!--bean 初始化参数-->
 
 </beans>

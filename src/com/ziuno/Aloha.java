@@ -1,6 +1,20 @@
 package com.ziuno;
 
 public class Aloha {
+    //    DI 测试
+    private Hello hello;
+
+    public Aloha(Hello hello, String message) {
+        System.out.println("Aloha constructor");
+        this.hello = hello;
+        this.message = message;
+    }
+
+    public void printAloha() {
+        hello.getMessage();
+    }
+//
+
     public String getMessage() {
         System.out.println("Aloha Message: " + message);
         return message;

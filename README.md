@@ -1,5 +1,10 @@
 # Spring Learn
 ***
 ## Spring bean
-**Spring bean**, 
-`<bean></bean>`, `<property/>`
+* ###### Spring IoC
+    * `<bean></bean>`
+    * `<property/>`
+    
+    
+* ###### DI
+    * `<constructor-arg />`

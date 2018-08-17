@@ -1,13 +1,18 @@
 package com.ziuno;
 
 public class Hello {
+
+    public Hello() {
+        System.out.println("Hello constructor");
+    }
+
     /*
-    无init函数则可实现InitializingBean接口完成初始化回调
-    无destroy函数则可实现DisposableBean接口完成销毁回调
-    不建议
-    */
+        无init函数则可实现InitializingBean接口完成初始化回调
+        无destroy函数则可实现DisposableBean接口完成销毁回调
+        不建议
+        */
     public String getMessage() {
-        System.out.println("Message:" + message);
+        System.out.println("Hello Message:" + message);
         return message;
     }
 
