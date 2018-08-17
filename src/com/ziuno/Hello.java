@@ -4,6 +4,7 @@ public class Hello {
 
     public Hello() {
         System.out.println("Hello constructor");
+//        System.out.println("Hello Message: " + getMessage());
     }
 
     /*

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--default-init-method="init"
        default-destroy-method="destroy"-->
     <!--在beans标签中添加默认初始化和销毁回调函数-->
-
 
     <!--<bean id="hello" class="com.ziuno.Hello" scope="singleton">-->
     <!--&lt;!&ndash;note：singleton 只存放一个共享bean实例&ndash;&gt;-->
@@ -34,19 +33,31 @@
     <!--</bean>-->
     <!--&lt;!&ndash;模板bean，抽象true，无法实例化&ndash;&gt;-->
 
-    <bean id="hello" class="com.ziuno.Hello" />
-    <bean id="aloha" class="com.ziuno.Aloha">
-        <constructor-arg ref="hello"/>
-        <constructor-arg type="java.lang.String" value="aaa"/>
+    <!--<bean id="hello" class="com.ziuno.Hello" />-->
+    <!--<bean id="aloha" class="com.ziuno.Aloha">-->
 
-        <!--<constructor-arg index="0" ref="hello"/>-->
-        <!--<constructor-arg index="1" value="aaa"/>-->
-        <!--&lt;!&ndash;index (best)&ndash;&gt;-->
+        <!---->
+        <!--<constructor-arg ref="hello"/>-->
+        <!--<constructor-arg type="java.lang.String" value="aaa"/>-->
 
-        <!--<constructor-arg name="h" ref="hello"/>-->
-        <!--<constructor-arg name="m" value="aaa"/>-->
-        <!--&lt;!&ndash;name&ndash;&gt;-->
-    </bean>
-    <!--bean 初始化参数-->
+        <!--&lt;!&ndash;无构造函数时可使用property设置私有成员值&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="name" value="值"/>成员传引用&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="name" ref="引用"/>成员传值&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<constructor-arg index="0" ref="hello"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<constructor-arg index="1" value="aaa"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;index (best)&ndash;&gt;&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<constructor-arg name="h" ref="hello"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<constructor-arg name="m" value="aaa"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;name&ndash;&gt;&ndash;&gt;-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;bean 初始化参数&ndash;&gt;-->
+
+    <bean id="hello" class="com.ziuno.Hello" init-method="init" destroy-method="destroy" p:message="p-namespace message"/>
+    <!--创建对象->执行构造函数->属性赋值->初始化前函数->执行类init-method->初始化后函数->Main中继续执行-->
+    <bean class="com.ziuno.ProcessHello"/>
+
+    <!--<bean id="aloha" class="com.ziuno.Aloha" parent="hello" p:hello-ref="hello" p:message="p-namespace: aloha message"/>-->
 
 </beans>
