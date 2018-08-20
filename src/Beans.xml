@@ -11,28 +11,36 @@
     <bean id="casual_name" class="com.ziuno.Hello">
         <property name="message" value="just casual message"/>
     </bean>
-    <bean id="aloha" class="com.ziuno.Aloha" >
+    <bean id="aloha" class="com.ziuno.Aloha">
+    </bean>
+    <bean id="more_casual_name" class="com.ziuno.Hello">
+        <property name="message" value="just more casual message"/>
     </bean>
     <!--@Required 的set函数必须在xml中配置-->
     <!--@Autowire 自动装配 setter、构造函数等函数 自动装配属性可省略setter函数 自动装配setter可省略bean中配置-->
+    <!--@Autowire + @Qualifier("more_casual_name") 选择自动装配对象-->
+    <!--JSR-250-->
+    <!--@PostConstruct 注释作为初始化回调函数的一个替代-->
+    <!--@PreDestroy 注释作为销毁回调函数的一个替代-->
+    <!--@Resource 注释在字段中或者 setter 方法中使用，遵循byName进行注入-->
 
 
     <!--<bean id="aloha" class="com.ziuno.Aloha" autowire="constructor">-->
-        <!--<constructor-arg name="m" value="just constructor message"/>-->
-        <!--<constructor-arg name="om" value="just constructor own message"/>-->
+    <!--<constructor-arg name="m" value="just constructor message"/>-->
+    <!--<constructor-arg name="om" value="just constructor own message"/>-->
     <!--</bean>-->
 
     <!--<bean id="casualName" class="com.ziuno.Hello">-->
-        <!--<property name="message" value="just hello constructor message"/>-->
+    <!--<property name="message" value="just hello constructor message"/>-->
     <!--</bean>-->
     <!--&lt;!&ndash;构造函数自动装配，构造函数参数类型匹配即可自动装配，与byType类似&ndash;&gt;-->
 
     <!--<bean id="aloha" class="com.ziuno.Aloha" autowire="byType">-->
-        <!--<property name="ownMessage" value="Aloha own message"/>-->
-        <!--<property name="message" value="Aloha message"/>-->
+    <!--<property name="ownMessage" value="Aloha own message"/>-->
+    <!--<property name="message" value="Aloha message"/>-->
     <!--</bean>-->
     <!--<bean id="casual" class="com.ziuno.Hello">-->
-        <!--<property name="message" value="Hello casual message"/>-->
+    <!--<property name="message" value="Hello casual message"/>-->
     <!--</bean>-->
     <!--&lt;!&ndash;按照变量类型和其他bean类型自动装配&ndash;&gt;-->
 
