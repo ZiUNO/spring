@@ -7,17 +7,20 @@ public class MainApp {
     public static void main(String[] args) {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//        Hello hello = (Hello)context.getBean("hello");
+//        hello.getMessage();
+
         Aloha aloha = (Aloha) context.getBean("aloha");
         aloha.printHello();
-        aloha.getOwnMessage();
-        aloha.getMessage();
+//        aloha.getOwnMessage();
+//        aloha.getMessage();
 
 
-//    Hello hello = (Hello)context.getBean("hello");
-//    hello.getList();
-//    hello.getMap();
-//    hello.getProperties();
-//    hello.getSet();
+//        Hello hello = (Hello) context.getBean("hello");
+//        hello.getList();
+//        hello.getMap();
+//        hello.getProperties();
+//        hello.getSet();
 
 //        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 //        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans.xml");

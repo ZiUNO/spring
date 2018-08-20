@@ -1,5 +1,8 @@
 package com.ziuno;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -62,11 +65,12 @@ public class Hello {
         System.out.println("Hello Message: " + message);
         return message;
     }
-
+    @Required
     public void setMessage(String message) {
         this.message = message;
     }
-//
+
+
     private String message;
 //
 ////    @Override

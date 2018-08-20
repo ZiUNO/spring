@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--default-init-method="init"
        default-destroy-method="destroy"-->
     <!--在beans标签中添加默认初始化和销毁回调函数-->
 
-    <bean id="aloha" class="com.ziuno.Aloha" autowire="constructor">
-        <constructor-arg name="m" value="just constructor message"/>
-        <constructor-arg name="om" value="just constructor own message"/>
+    <context:annotation-config/>
+    <bean id="casual_name" class="com.ziuno.Hello">
+        <property name="message" value="just casual message"/>
     </bean>
+    <bean id="aloha" class="com.ziuno.Aloha" >
+    </bean>
+    <!--@Required 的set函数必须在xml中配置-->
+    <!--@Autowire 自动装配 setter、构造函数等函数 自动装配属性可省略setter函数 自动装配setter可省略bean中配置-->
 
-    <bean id="casualName" class="com.ziuno.Hello">
-        <property name="message" value="just hello constructor message"/>
-    </bean>
-    <!--构造函数自动装配，构造函数参数类型匹配即可自动装配，与byType类似-->
+
+    <!--<bean id="aloha" class="com.ziuno.Aloha" autowire="constructor">-->
+        <!--<constructor-arg name="m" value="just constructor message"/>-->
+        <!--<constructor-arg name="om" value="just constructor own message"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="casualName" class="com.ziuno.Hello">-->
+        <!--<property name="message" value="just hello constructor message"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;构造函数自动装配，构造函数参数类型匹配即可自动装配，与byType类似&ndash;&gt;-->
 
     <!--<bean id="aloha" class="com.ziuno.Aloha" autowire="byType">-->
         <!--<property name="ownMessage" value="Aloha own message"/>-->

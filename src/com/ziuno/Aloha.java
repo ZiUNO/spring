@@ -1,15 +1,20 @@
 package com.ziuno;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Aloha {
     //    DI 测试
+    @Autowired
     private Hello hello;
 
-    public Aloha(Hello h, String m, String om) {
-        System.out.println("Aloha constructor");
-        this.hello = h;
-        this.message = m;
-        this.ownMessage = om;
-    }
+
+//    @Autowired
+//    public Aloha(Hello h, String m, String om) {
+//        System.out.println("Aloha constructor");
+//        this.hello = h;
+//        this.message = m;
+//        this.ownMessage = om;
+//    }
 
     public void printHello() {
         hello.getMessage();
@@ -38,7 +43,7 @@ public class Aloha {
 
     private String ownMessage;
 
-    public void setHello(Hello hello) {
-        this.hello = hello;
-    }
+//    public void setHello(Hello hello) {
+//        this.hello = hello;
+//    }
 }
