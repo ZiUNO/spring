@@ -4,13 +4,14 @@ public class Aloha {
     //    DI 测试
     private Hello hello;
 
-//    public Aloha(Hello h, String m) {
-//        System.out.println("Aloha constructor");
-//        this.hello = h;
-//        this.message = m;
-//    }
+    public Aloha(Hello h, String m, String om) {
+        System.out.println("Aloha constructor");
+        this.hello = h;
+        this.message = m;
+        this.ownMessage = om;
+    }
 
-    public void printAloha() {
+    public void printHello() {
         hello.getMessage();
     }
 //
