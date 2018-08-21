@@ -1,21 +1,33 @@
 package com.ziuno;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(AlohaConfig.class);
-        Hello hello = context.getBean(Hello.class);
-        Hello hello1 = context.getBean(Hello.class);
-        hello.setMessage("set casual message");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        context.start();
+        Hello hello = (Hello) context.getBean("hello");
+        hello.setMessage("m1");
         hello.getMessage();
+        Hello hello1 = (Hello) context.getBean("hello");
+        hello1.setMessage("m2");
         hello1.getMessage();
-        Aloha aloha = context.getBean(Aloha.class);
-        aloha.setOwnMessage("set aloha message casually");
-        aloha.getOwnMessage();
-        ((AnnotationConfigApplicationContext) context).registerShutdownHook();
+        context.stop();
+//        上下文启动 -> start 关闭 -> stop
+//        上下文启动或关闭事件监听
+
+//        ApplicationContext context = new AnnotationConfigApplicationContext(AlohaConfig.class);
+//        Hello hello = context.getBean(Hello.class);
+//        Hello hello1 = context.getBean(Hello.class);
+//        hello.setMessage("set casual message");
+//        hello.getMessage();
+//        hello1.getMessage();
+//        Aloha aloha = context.getBean(Aloha.class);
+//        aloha.setOwnMessage("set aloha message casually");
+//        aloha.getOwnMessage();
+//        ((AnnotationConfigApplicationContext) context).registerShutdownHook();
 
 //        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 //        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");

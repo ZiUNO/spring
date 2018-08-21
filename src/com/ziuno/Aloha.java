@@ -1,7 +1,5 @@
 package com.ziuno;
 
-import javax.annotation.Resource;
-
 public class Aloha {
     //    DI 测试
 
