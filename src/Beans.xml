@@ -6,10 +6,12 @@
        default-destroy-method="destroy"-->
     <!--在beans标签中添加默认初始化和销毁回调函数-->
 
-    <bean id="hello" class="com.ziuno.Hello" scope="prototype"/>
-    <bean class="com.ziuno.StartListener"/>
-    <bean class="com.ziuno.StopListener"/>
-
+    <bean id="myPublisher" class="com.ziuno.Publishers.MyPublisher"/>
+    <bean id="myListener" class="com.ziuno.Listeners.MyListener"/>
+    
+    <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype"/>-->
+    <!--<bean class="com.ziuno.Listeners.StartListener"/>-->
+    <!--<bean class="com.ziuno.Listeners.StopListener"/>-->
 
     <!--<context:annotation-config/>-->
     <!--<bean id="casual_name" class="com.ziuno.Hello">-->

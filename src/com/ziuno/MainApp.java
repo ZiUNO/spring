@@ -1,22 +1,26 @@
 package com.ziuno;
 
-import org.springframework.context.ConfigurableApplicationContext;
+import com.ziuno.Publishers.MyPublisher;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
-
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        context.start();
-        Hello hello = (Hello) context.getBean("hello");
-        hello.setMessage("m1");
-        hello.getMessage();
-        Hello hello1 = (Hello) context.getBean("hello");
-        hello1.setMessage("m2");
-        hello1.getMessage();
-        context.stop();
-//        上下文启动 -> start 关闭 -> stop
-//        上下文启动或关闭事件监听
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        MyPublisher publisher = (MyPublisher)context.getBean("myPublisher");
+        publisher.publish();
+        publisher.publish();
+//        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//        context.start();
+//        Hello hello = (Hello) context.getBean("hello");
+//        hello.setMessage("m1");
+//        hello.getMessage();
+//        Hello hello1 = (Hello) context.getBean("hello");
+//        hello1.setMessage("m2");
+//        hello1.getMessage();
+//        context.stop();
+////        上下文启动 -> start 关闭 -> stop
+////        上下文启动或关闭事件监听
 
 //        ApplicationContext context = new AnnotationConfigApplicationContext(AlohaConfig.class);
 //        Hello hello = context.getBean(Hello.class);
