@@ -1,18 +1,29 @@
 package com.ziuno;
 
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
 
+        ApplicationContext context = new AnnotationConfigApplicationContext(AlohaConfig.class);
+        Hello hello = context.getBean(Hello.class);
+        Hello hello1 = context.getBean(Hello.class);
+        hello.setMessage("set casual message");
+        hello.getMessage();
+        hello1.getMessage();
+        Aloha aloha = context.getBean(Aloha.class);
+        aloha.setOwnMessage("set aloha message casually");
+        aloha.getOwnMessage();
+        ((AnnotationConfigApplicationContext) context).registerShutdownHook();
+
 //        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 //        Hello hello = (Hello)context.getBean("hello");
 //        hello.getMessage();
-
-        Aloha aloha = (Aloha) context.getBean("aloha");
-        aloha.printHello();
+//
+//        Aloha aloha = (Aloha) context.getBean("aloha");
+//        aloha.printHello();
 //        aloha.getOwnMessage();
 //        aloha.getMessage();
 

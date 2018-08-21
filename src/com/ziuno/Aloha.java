@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 public class Aloha {
     //    DI 测试
 
-    private Hello hello;
+//    private Hello hello;
 //    @Autowired
 //    @Qualifier("more_casual_name")
 //    private Hello hello;
@@ -19,9 +19,9 @@ public class Aloha {
 //        this.ownMessage = om;
 //    }
 
-    public void printHello() {
-        hello.getMessage();
-    }
+//    public void printHello() {
+//        hello.getMessage();
+//    }
 //
 
 //    public String getMessage() {
@@ -34,20 +34,20 @@ public class Aloha {
 //    }
 //
 //    private String message;
-//
-//    public String getOwnMessage() {
-//        System.out.println("Aloha ownMessage: " + ownMessage);
-//        return ownMessage;
-//    }
-//
-//    public void setOwnMessage(String ownMessage) {
-//        this.ownMessage = ownMessage;
-//    }
 
-//    private String ownMessage;
-
-    @Resource(name = "more_casual_name")
-    public void setHello(Hello hello) {
-        this.hello = hello;
+    public String getOwnMessage() {
+        System.out.println("Aloha ownMessage: " + ownMessage);
+        return ownMessage;
     }
+
+    public void setOwnMessage(String ownMessage) {
+        this.ownMessage = ownMessage;
+    }
+
+    private String ownMessage;
+
+//    @Resource(name = "more_casual_name")
+//    public void setHello(Hello hello) {
+//        this.hello = hello;
+//    }
 }

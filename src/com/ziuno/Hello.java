@@ -1,7 +1,5 @@
 package com.ziuno;
 
-import org.springframework.beans.factory.annotation.Required;
-
 public class Hello {
 
 //    public List getList() {
@@ -59,7 +57,7 @@ public class Hello {
         System.out.println("Hello Message: " + message);
         return message;
     }
-    @Required
+//    @Required
     public void setMessage(String message) {
         this.message = message;
     }
@@ -72,11 +70,11 @@ public class Hello {
 ////        message ="init message";
 ////    }
 ////
-//    public void init(){
-//        System.out.println("init");
-//    }
-//
-//    public void destroy(){
-//        System.out.println("destroy");
-//    }
+    public void init(){
+        System.out.println("init");
+    }
+
+    public void destroy(){
+        System.out.println("destroy");
+    }
 }
