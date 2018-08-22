@@ -6,23 +6,31 @@
        default-destroy-method="destroy"-->
     <!--在beans标签中添加默认初始化和销毁回调函数-->
 
+    <aop:aspectj-autoproxy/>
+    <bean id="log" class="com.ziuno.Aspects.Logger"/>
+    <bean id="time" class="com.ziuno.Aspects.Timer"/>
     <bean id="hello" class="com.ziuno.Hello">
-        <property name="message" value="aop set hello message"/>
+        <property name="message" value="@Aspectj set message"/>
     </bean>
-    <bean id="logging" class="com.ziuno.Aspects.Logging"/>
-    <bean id="timer" class="com.ziuno.Aspects.Timer"/>
-    <aop:config>
-        <aop:aspect id="log" ref="logging">
-            <aop:pointcut id="logProcess" expression="execution(* com.ziuno.Hello.set*(..))"/>
-            <aop:before method="beforeAdvice" pointcut-ref="logProcess"/>
-            <aop:after method="afterAdvice" pointcut-ref="logProcess"/>
-        </aop:aspect>
-        <aop:aspect id="time" ref="timer">
-            <aop:pointcut id="time" expression="execution(* com.ziuno.Hello.get*())"/>
-            <aop:before pointcut-ref="time" method="getTime"/>
-            <aop:after pointcut-ref="time" method="getTime"/>
-        </aop:aspect>
-    </aop:config>
+    <!--log位置在time前，切面时则先执行-->
+
+    <!--<bean id="hello" class="com.ziuno.Hello">-->
+    <!--<property name="message" value="aop set hello message"/>-->
+    <!--</bean>-->
+    <!--<bean id="logging" class="com.ziuno.Aspects.Logger/>-->
+    <!--<bean id="timer" class="com.ziuno.Aspects.Timer"/>-->
+    <!--<aop:config>-->
+    <!--<aop:aspect id="log" ref="logging">-->
+    <!--<aop:pointcut id="logProcess" expression="execution(* com.ziuno.Hello.set*(..))"/>-->
+    <!--<aop:before method="beforeAdvice" pointcut-ref="logProcess"/>-->
+    <!--<aop:after method="afterAdvice" pointcut-ref="logProcess"/>-->
+    <!---->
+    <!--<aop:aspect id="time" ref="timer">-->
+    <!--<aop:pointcut id="time" expression="execution(* com.ziuno.Hello.get*())"/>-->
+    <!--<aop:before pointcut-ref="time" method="getTime"/>-->
+    <!--<aop:after pointcut-ref="time" method="getTime"/>-->
+    <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
     <!--<bean id="myPublisher" class="com.ziuno.Publishers.MyPublisher"/>-->
     <!--<bean id="myListener" class="com.ziuno.Listeners.MyListener"/>-->
