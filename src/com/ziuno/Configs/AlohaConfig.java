@@ -1,5 +1,6 @@
-package com.ziuno;
+package com.ziuno.Configs;
 
+import com.ziuno.Aloha;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

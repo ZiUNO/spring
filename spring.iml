@@ -5,6 +5,8 @@
       <configuration>
         <fileset id="fileset" name="Beans" removed="false">
           <file>file://$MODULE_DIR$/src/Beans.xml</file>
+          <file>file://$MODULE_DIR$/src/com/ziuno/Configs/AlohaConfig.java</file>
+          <file>file://$MODULE_DIR$/src/com/ziuno/Configs/HelloConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -17,5 +19,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Spring" level="project" />
+    <orderEntry type="library" name="aspectj" level="project" />
   </component>
 </module>

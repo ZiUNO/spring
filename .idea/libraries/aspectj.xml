@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="aspectj">
+    <CLASSES>
+      <root url="file://F:/Program Files/maven/spring-framework-5.0.8.RELEASE/aspectj" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://F:/Program Files/maven/spring-framework-5.0.8.RELEASE/aspectj" />
+    </SOURCES>
+    <jarDirectory url="file://F:/Program Files/maven/spring-framework-5.0.8.RELEASE/aspectj" recursive="false" />
+    <jarDirectory url="file://F:/Program Files/maven/spring-framework-5.0.8.RELEASE/aspectj" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -43,7 +43,7 @@ public class Hello {
 //    Map map;
 //    Properties properties;
 
-//    public Hello() {
+    //    public Hello() {
 //        System.out.println("Hello constructor");
 ////        System.out.println("Hello Message: " + getMessage());
 //    }
@@ -57,11 +57,16 @@ public class Hello {
         System.out.println("Hello Message: " + message);
         return message;
     }
-//    @Required
+
+    //    @Required
     public void setMessage(String message) {
+        System.out.println("set Hello message: " + message);
         this.message = message;
     }
 
+    public Hello() {
+        System.out.println("Hello Constructor");
+    }
 
     private String message;
 //
@@ -70,6 +75,7 @@ public class Hello {
 ////        message ="init message";
 ////    }
 ////
+
     public void init(){
         System.out.println("init");
     }

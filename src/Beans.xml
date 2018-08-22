@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--default-init-method="init"
        default-destroy-method="destroy"-->
     <!--在beans标签中添加默认初始化和销毁回调函数-->
 
-    <bean id="myPublisher" class="com.ziuno.Publishers.MyPublisher"/>
-    <bean id="myListener" class="com.ziuno.Listeners.MyListener"/>
-    
+    <bean id="hello" class="com.ziuno.Hello">
+        <property name="message" value="aop set hello message"/>
+    </bean>
+    <bean id="logging" class="com.ziuno.Aspects.Logging"/>
+    <bean id="timer" class="com.ziuno.Aspects.Timer"/>
+    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <aop:pointcut id="logProcess" expression="execution(* com.ziuno.Hello.set*(..))"/>
+            <aop:before method="beforeAdvice" pointcut-ref="logProcess"/>
+            <aop:after method="afterAdvice" pointcut-ref="logProcess"/>
+        </aop:aspect>
+        <aop:aspect id="time" ref="timer">
+            <aop:pointcut id="time" expression="execution(* com.ziuno.Hello.get*())"/>
+            <aop:before pointcut-ref="time" method="getTime"/>
+            <aop:after pointcut-ref="time" method="getTime"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--<bean id="myPublisher" class="com.ziuno.Publishers.MyPublisher"/>-->
+    <!--<bean id="myListener" class="com.ziuno.Listeners.MyListener"/>-->
+
     <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype"/>-->
     <!--<bean class="com.ziuno.Listeners.StartListener"/>-->
     <!--<bean class="com.ziuno.Listeners.StopListener"/>-->
@@ -104,7 +122,7 @@
 
     <!--<bean id="hello" class="com.ziuno.Hello" init-method="init" destroy-method="destroy" p:message="p-namespace message"/>-->
     <!--&lt;!&ndash;创建对象->执行构造函数->属性赋值->初始化前函数->执行类init-method->初始化后函数->Main中继续执行&ndash;&gt;-->
-    <!--<bean class="com.ziuno.ProcessHello"/>-->
+    <!--<bean class="com.ziuno.Processors.ProcessHello"/>-->
 
     <!--&lt;!&ndash;<constructor-arg name="h" ref="hello"/>&ndash;&gt;-->
     <!--&lt;!&ndash;<constructor-arg name="m" value="aaa"/>&ndash;&gt;-->
@@ -142,7 +160,7 @@
     <!--&lt;!&ndash;bean继承：用于定义bean模板，其他bean继承&ndash;&gt;-->
 
     <!--<bean id="hello" class="com.ziuno.Hello" init-method="init" destroy-method="destroy"/>-->
-    <!--&lt;!&ndash;<bean class="com.ziuno.ProcessHello"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean class="com.ziuno.Processors.ProcessHello"/>&ndash;&gt;-->
 
     <!--<bean id="hello" class="com.ziuno.Hello" scope="prototype" init-method="init"/>-->
     <!--&lt;!&ndash;note：类中有init函数，void无参数方法&ndash;&gt;-->

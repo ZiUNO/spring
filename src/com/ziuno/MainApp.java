@@ -1,15 +1,22 @@
 package com.ziuno;
 
-import com.ziuno.Publishers.MyPublisher;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) {
+
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        MyPublisher publisher = (MyPublisher)context.getBean("myPublisher");
-        publisher.publish();
-        publisher.publish();
+        Hello hello = (Hello)context.getBean("hello");
+        hello.getMessage();
+        hello.setMessage("set message for aop");
+        hello.getMessage();
+
+//        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//        MyPublisher publisher = (MyPublisher)context.getBean("myPublisher");
+//        publisher.publish();
+//        publisher.publish();
+
 //        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 //        context.start();
 //        Hello hello = (Hello) context.getBean("hello");

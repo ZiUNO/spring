@@ -3,7 +3,15 @@ package com.ziuno;
 public class Aloha {
     //    DI 测试
 
-//    private Hello hello;
+    public Hello getHello() {
+        return hello;
+    }
+
+    public void setHello(Hello hello) {
+        this.hello = hello;
+    }
+
+    private Hello hello;
 //    @Autowired
 //    @Qualifier("more_casual_name")
 //    private Hello hello;
